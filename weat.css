@@ -7,7 +7,7 @@ body {
 
 .card {
   background: #F0F4F5d0;
-  border-radius: 30px;
+  border-radius: 20px;
   width: 100%;
   max-width: 600px;
   margin: 20px auto;
@@ -31,11 +31,12 @@ button {
 }
 
 h1 {
-  color: #1E1C29;
-  font-size: 24px;
-  font-weight: 100;
-  line-height: 28px;
-  margin: 0;
+  color: #272142;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 44px;
+  margin: 20px 0 10px;
+  text-align: left;
 }
 
 ul {
