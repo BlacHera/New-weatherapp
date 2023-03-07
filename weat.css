@@ -8,6 +8,17 @@ body {
   max-width: 600px;
   margin: 30px auto;
 }
+
+.WeatherInfo {
+  margin-top: 20px;
+}
+
+.Weather form {
+  border-bottom: 1px solid #f9f7fe;
+  margin-top: 40px;
+  padding-bottom: 30px;
+}
+
 .card {
   background: #F0F4F5d0;
   border-radius: 16px;
