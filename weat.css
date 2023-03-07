@@ -83,5 +83,5 @@ small,
 .small {
   font-size: small-font-size;
   font-weight: font-weight-normal;
-  text-align: center;
+  text-align:left;
 }
