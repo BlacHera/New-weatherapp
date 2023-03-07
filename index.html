@@ -22,72 +22,74 @@
   </head>
   <body>
     <div class="container">
-      <div class="card">
-        <form class="search-form" id="search-form">
+      <div class="weather-app-wrraper">
+        <div class="card">
+          <form class="search-form" id="search-form">
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="search"
+                  placeholder="Enter a city.."
+                  autofocus="on"
+                  autocomplete="off"
+                  id="city-input"
+                  class="form-control shadow-sm"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="form-control btn btn-primary shadow-sm"
+                />
+              </div>
+              <div class="col-3">
+                <button
+                  class="btn btn-success w-100"
+                  id="current-location-button"
+                >
+                  Current
+                </button>
+              </div>
+            </div>
+          </form>
+          <h1 id="city"></h1>
+          <ul>
+            <li id="date"></li>
+            <li id="description"></li>
+          </ul>
           <div class="row">
-            <div class="col-6">
-              <input
-                type="search"
-                placeholder="Enter a city.."
-                autofocus="on"
-                autocomplete="off"
-                id="city-input"
-                class="form-control shadow-sm"
-              />
+            <div class="col-sm">
+              <div class="clearfix">
+                <img
+                  src="image/stormcloud.png"
+                  alt="Storm cloud icon"
+                  class="weather-icon float-left"
+                />
+              </div>
             </div>
-            <div class="col-3">
-              <input
-                type="submit"
-                value="Search"
-                class="form-control btn btn-primary shadow-sm"
-              />
+            <div class="col-sm">
+              <div class="float-right">
+                <span class="temperature" id="temperature">17</span
+                ><span class="units">
+                  <a href="#" id="celsius-link">°C</a>
+                </span>
+              </div>
             </div>
-            <div class="col-3">
-              <button
-                class="btn btn-success w-100"
-                id="current-location-button"
-              >
-                Current
-              </button>
+            <div class="col-sm">
+              <ul>
+                <li>Precipitation: 2%</li>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind: <span id="wind"></span> km/h</li>
+              </ul>
             </div>
-          </div>
-        </form>
-        <h1 id="city"></h1>
-        <ul>
-          <li id="date"></li>
-          <li id="description"></li>
-        </ul>
-        <div class="row">
-          <div class="col-sm">
-            <div class="clearfix">
-              <img
-                src="image/stormcloud.png"
-                alt="Storm cloud icon"
-                class="weather-icon float-left"
-              />
-            </div>
-          </div>
-          <div class="col-sm">
-            <div class="float-right">
-              <span class="temperature" id="temperature">17</span
-              ><span class="units">
-                <a href="#" id="celsius-link">°C</a>
-              </span>
-            </div>
-          </div>
-          <div class="col-sm">
-            <ul>
-              <li>Precipitation: 2%</li>
-              <li>Humidity: <span id="humidity"></span>%</li>
-              <li>Wind: <span id="wind"></span> km/h</li>
-            </ul>
           </div>
         </div>
         <small>
           <a href="https://github.com/BlacHera/New-weatherapp" target="_blank"
             >Open-source code</a
           >
-          , by Phyllis Ampo
+          by Phyllis Ampo
         </small>
       </div>
     </div>

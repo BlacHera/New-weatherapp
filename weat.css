@@ -2,9 +2,12 @@ body {
   height: 100vh;
   margin: 0;
   background: radial-gradient(592px at 48.2% 50%, rgba(255, 255, 249, 0.6) 0%, rgb(160, 199, 254) 74.6%);
-  font-family: 'Open Sans', sans-serif;
+  font-family: Cerebri-Sans, Helvetica, Arial, sans-serif;
 }
-
+.weather-app-wrraper{
+  max-width: 600px;
+  margin: 30px auto;
+}
 .card {
   background: #F0F4F5d0;
   border-radius: 20px;
