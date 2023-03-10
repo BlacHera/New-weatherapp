@@ -45,12 +45,17 @@
           <div class="WeatherInfo">
             <div class="row">
               <div class="col-6">
-                <h1>Madrid</h1>
+                <h1 id="city">Madrid</h1>
                 <ul>
-                  <li><span>Tuesday 13:50</span>, clouds</li>
+                  <li id="date">
+                    <span>Tuesday 13:50</span>,
+                    <span id="description">Clouds</span>
+                  </li>
                   <li>
-                    Humidity: <strong>88%</strong>, Wind:
-                    <strong>3.09km/h</strong>
+                    Humidity:<span id="humidity"></span>%, Wind:<span
+                      id="wind"
+                    ></span>
+                    km/h
                   </li>
                 </ul>
               </div>
@@ -58,7 +63,7 @@
                 <div class="temperature-container d-flex justify-content-end">
                   <canvas width="52" height="52"> </canvas>
                   <div>
-                    <span class="temperature">5</span>
+                    <span class="temperature" id="temperature">5</span>
                     <span class="unit">°C</span>
                   </div>
                 </div>
