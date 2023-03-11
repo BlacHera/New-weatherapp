@@ -1,7 +1,7 @@
 body {
   height: 100vh;
   margin: 0;
-  background: radial-gradient(592px at 48.2% 50%, rgba(255, 255, 249, 0.6) 0%, rgb(160, 199, 254) 74.6%);
+  background: linear-gradient(110.2deg, rgb(54, 197, 240) 8.2%, rgb(74, 21, 75) 92.4%);
   font-family: Cerebri-Sans, Helvetica, Arial, sans-serif;
 }
 .weather-app-wrraper{
