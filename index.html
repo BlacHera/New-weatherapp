@@ -24,13 +24,14 @@
     <div class="container">
       <div class="weather-app-wrraper">
         <div class="card">
-          <form>
+          <form class="search-form" id="search-form">
             <div class="row">
               <div class="col-9">
                 <input
                   type="search"
                   placeholder="Enter a city.."
                   class="form-control search-input"
+                  id="city-input"
                 />
               </div>
               <div class="col-3 p-0">
@@ -48,6 +49,9 @@
                 <h1 id="city">Madrid</h1>
                 <ul>
                   <li id="date">
+                    <span>Friday 05:00</span>
+                  </li>
+                  <li>
                     <span id="description"></span>
                   </li>
                   <li>
@@ -60,7 +64,12 @@
               </div>
               <div class="col-lg-6 col-md-6 col-sm-8">
                 <div class="temperature-container d-flex justify-content-end">
-                  <canvas width="52" height="52"> </canvas>
+                  <img
+                    src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
+                    alt="Clear"
+                    id="icon"
+                    class="weather-icon"
+                  />
                   <div>
                     <span class="temperature" id="temperature"></span>
                     <span class="unit">°C</span>

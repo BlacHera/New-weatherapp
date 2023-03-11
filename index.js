@@ -1,5 +1,4 @@
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
+function formatDate(date) {
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -8,6 +7,8 @@ function formatDate(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+
+  let dayIndex = date.getDay();
   let days = [
     "Sunday",
     "Monday",
@@ -17,26 +18,57 @@ function formatDate(timestamp) {
     "Friday",
     "Saturday"
   ];
-  let day = days[date.getDay()];
+  let day = days[dayIndex];
+
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayTemperature(response){
-  let temperatureElement = document.querySelector("#temperature");
-  let cityElement = document.querySelector("#city");
+function displayWeatherCondition(response) {
+  document.querySelector("#city").innerHTML = response.data.name;
+  document.querySelector("#temperature").innerHTML = Math.round(
+    response.data.main.temp
+  );
+
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+
   let descriptionElement = document.querySelector("#description");
-  let humidityElement = document.querySelector("#humidity");
-  let windElement = document.querySelector("#wind");
-  let dateElement = document.querySelector("#date");
-  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
-  cityElement.innerHTML = (response.data.city);
-descriptionElement.innerHTML = (response.data.condition.description);
-humidityElement.innerHTML = (response.data.temperature.humidity);
-windElement.innerHTML = Math.round(response.data.wind.speed);
-dateElement.innerHTML = formatDate(response.data.time * 1000);
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  
 }
 
-let apiKey = "915cf8b508a0td45a07115o44a3a36c2";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Madrid&key=${apiKey}&units=metric`;
+function searchCity(city) {
+  let apiKey = "4104431b5067788c689c23fb1ae31cec";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeatherCondition);
+}
 
-axios.get(apiUrl).then(displayTemperature);
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#city-input").value;
+  searchCity(city);
+}
+
+function searchLocation(position) {
+  let apiKey = "2ff29bed3181c3526c35cc5408037f85";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayWeatherCondition);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+let dateElement = document.querySelector("#date");
+let currentTime = new Date();
+dateElement.innerHTML = formatDate(currentTime);
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
+
+
+searchCity("Madrid");
