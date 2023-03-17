@@ -23,6 +23,39 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast(){
+let forecastElement=document.querySelector("#forecast");
+
+let days = ["Sat", "Sun" , "Mon",];
+
+let forecastHTML=`<div class="row">`;
+ days.forEach(function (day) {
+forecastHTML= 
+forecastHTML +
+    `
+      <div class="col-2">
+        <div class="weather-forecast-date">${day}</div>
+        <img
+                  src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
+                  alt="Clear"
+                  width="50"
+                />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max"> 18° </span>
+          <span class="weather-forecast-temperature-min"> 12° </span>
+        </div>
+      </div>
+  `;
+  });
+ 
+
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+
+}
+
+
+
 function displayWeatherCondition(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
@@ -79,3 +112,4 @@ searchForm.addEventListener("submit", handleSubmit);
 
 
 searchCity("Madrid");
+displayForecast()
