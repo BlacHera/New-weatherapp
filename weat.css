@@ -128,10 +128,12 @@ canvas {
   margin-top: 20px;
   padding-bottom: 50px;
   text-align: center;
+  color: #482759;
+  
 }
 
 .forecast-temperature {
-  color: #f65282;
+  color: #482759;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -139,7 +141,7 @@ canvas {
 }
 .forecast-temperature-min {
   margin-left: 10px;
-  opacity: .6;
+  opacity: 0.5;
 }
 
 .small {
