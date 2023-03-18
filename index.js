@@ -19,14 +19,14 @@ function formatDate(date) {
     "Saturday"
   ];
   let day = days[dayIndex];
-
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast(){
-let forecastElement=document.querySelector("#forecast");
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecastElement = document.querySelector("#forecast");
 
-let days = ["Sat", "Sun" , "Mon",];
+let days = ["Sat", "Sun" , "Mon", "Tues"];
 
 let forecastHTML=`<div class="row">`;
  days.forEach(function (day) {
@@ -48,13 +48,16 @@ forecastHTML +
   `;
   });
  
-
 forecastHTML = forecastHTML + `</div>`;
 forecastElement.innerHTML = forecastHTML;
-
 }
 
-
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "4104431b5067788c689c23fb1ae31cec";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function displayWeatherCondition(response) {
   document.querySelector("#city").innerHTML = response.data.name;
@@ -77,6 +80,8 @@ iconElement.setAttribute(
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -89,13 +94,6 @@ function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
   searchCity(city);
-}
-
-function searchLocation(position) {
-  let apiKey = "2ff29bed3181c3526c35cc5408037f85";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-
-  axios.get(apiUrl).then(displayWeatherCondition);
 }
 
 function getCurrentLocation(event) {
@@ -112,4 +110,3 @@ searchForm.addEventListener("submit", handleSubmit);
 
 
 searchCity("Madrid");
-displayForecast()
