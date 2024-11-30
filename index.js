@@ -26,6 +26,8 @@ function displayForecast(response) {
     console.error("No daily forecast data available.");
     return;
   }
+  console.log(response.data);
+
 
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
